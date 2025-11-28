@@ -410,7 +410,7 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <span>Remote</span><span>Resources</span>
+                <span><img src="Logo150.png" alt="Logo" style="width:40px;"></span><span>Remote</span><span>Resources</span>
             </a>
             <nav>
                 <button class="mobile-menu-btn">☰</button>
@@ -447,7 +447,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    Professional Back Office Team
+                    <img src="Microsoft-Teams-Breakout-Rooms-Manage.jpg" alt="Professional Back Office Team" style="width:600px;">
                 </div>
             </div>
         </div>
@@ -487,13 +487,13 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Booking Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
+            <h2 class="section-title">Book a Meeting</h2>
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Connect With Us</h3>
+                    <h3>Book a Meeting</h3>
                     <p>Reach out to discuss how Remote Resources can support your back office needs. We specialize in working with the network of our leadership to provide personalized solutions.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/remoteresources/" target="_blank" title="LinkedIn">
@@ -503,25 +503,22 @@
                         </a>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="How can we help you?" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
+        <!-- Cal inline embed code begins -->
+        <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline-quick-chat"></div>
+        <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", "quick-chat", {origin:"https://app.cal.com"});
+
+        Cal.ns["quick-chat"]("inline", {
+            elementOrSelector:"#my-cal-inline-quick-chat",
+            config: {"layout":"column_view","theme":"light"},
+            calLink: "muslim/quick-chat",
+        });
+
+        Cal.ns["quick-chat"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#9BC1CA"},"dark":{"cal-brand":"#d8f6fc"}},"hideEventTypeDetails":false,"layout":"column_view"});
+        </script>
+        <!-- Cal inline embed code ends -->
     </section>
 
     <!-- Footer -->
@@ -562,23 +559,7 @@
             });
         });
 
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // In a real application, you would send this data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
-            
-            // Reset the form
-            this.reset();
-        });
-
+  
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
